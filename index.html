@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Act. 6.3.1 — Diagrama de Flujo | PNSA</title>
+<title>Act. 6.3.1 — Diagrama de Flujo| PNSA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -60,7 +60,7 @@ body::before {
 
 /* ─── HEADER ─────────────────────────────────────────────────── */
 #header {
-  position: relative; z-index: 10;
+  position: sticky; top: 0; z-index: 100;
   background: linear-gradient(135deg, var(--dark2) 0%, #1c0000 60%, #2a1000 100%);
   border-bottom: 3px solid var(--gold);
   padding: 18px 32px 14px;
@@ -122,43 +122,14 @@ body::before {
 .ht-btn.stop-btn  { border-color: var(--red); color: var(--red); }
 .ht-btn.preset    { font-size: .68rem; padding: 5px 8px; color: var(--muted); }
 
-/* ─── PROGRESS BAR ───────────────────────────────────────────── */
-#progress-bar-wrap {
-  position: relative; z-index: 9;
-  background: var(--dark2);
-  border-bottom: 1px solid #333;
-  padding: 10px 32px;
-  display: flex; align-items: center; gap: 16px;
-}
-.progress-label {
-  font-family: var(--font-mono);
-  font-size: .7rem; color: var(--muted);
-  white-space: nowrap; flex-shrink: 0;
-}
-.progress-track {
-  flex: 1; height: 10px;
-  background: var(--dark4);
-  border-radius: 5px; overflow: hidden;
-  border: 1px solid #444;
-}
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--red2), var(--red), var(--gold));
-  border-radius: 5px;
-  transition: width .6s ease;
-}
-.progress-pct {
-  font-family: var(--font-mono); font-size: .7rem; color: var(--gold2);
-  flex-shrink: 0; min-width: 34px; text-align: right;
-}
-
 /* ─── MOMENT TABS ────────────────────────────────────────────── */
 #tabs {
-  position: relative; z-index: 9;
+  position: sticky; top: 74px; z-index: 99;
   background: var(--dark2);
   display: flex; gap: 0;
   border-bottom: 2px solid var(--gold);
   overflow-x: auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
 }
 
 .tab {
@@ -192,9 +163,9 @@ body::before {
 /* ─── MAIN CONTENT AREA ─────────────────────────────────────── */
 #main {
   position: relative; z-index: 5;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 28px 32px;
+  padding: 20px 24px;
 }
 
 /* ─── MOMENT PANELS ──────────────────────────────────────────── */
@@ -251,30 +222,28 @@ body::before {
   background: var(--red);
   color: var(--white);
   font-family: var(--font-mono);
-  font-size: .65rem; font-weight: 700;
-  padding: 3px 9px; border-radius: 4px;
+  font-size: .9rem; font-weight: 700;
+  padding: 5px 13px; border-radius: 4px;
   flex-shrink: 0; white-space: nowrap;
 }
 .act-card-head .act-name {
   font-family: var(--font-head);
-  font-size: 1.05rem; font-weight: 600;
+  font-size: 1.35rem; font-weight: 600;
   flex: 1;
 }
-.act-card-head .toggle-icon {
-  color: var(--muted); font-size: .9rem; transition: transform .2s;
-}
-.act-card.open .toggle-icon { transform: rotate(180deg); }
+.act-card-head .toggle-icon { display: none; }
+.act-card.open .toggle-icon { display: none; }
 
 .act-card-body {
-  display: none;
-  padding: 0 18px 18px;
+  display: block;
+  padding: 0 22px 22px;
   border-top: 1px solid #2a2a2a;
 }
 .act-card.open .act-card-body { display: block; }
 
 .act-desc {
-  font-size: .85rem; color: #ccc; line-height: 1.7;
-  margin: 12px 0;
+  font-size: 1.1rem; color: #ccc; line-height: 1.8;
+  margin: 16px 0;
 }
 .act-desc li { margin-left: 18px; margin-bottom: 4px; }
 
@@ -288,13 +257,13 @@ body::before {
 
 .tool-btn {
   display: flex; align-items: center; gap: 9px;
-  padding: 10px 14px;
+  padding: 12px 18px;
   border-radius: var(--radius);
   border: 1.5px solid transparent;
   cursor: pointer;
   text-decoration: none;
   font-family: var(--font-body);
-  font-weight: 700; font-size: .78rem;
+  font-weight: 700; font-size: 1rem;
   transition: all .18s;
   position: relative; overflow: hidden;
 }
@@ -379,19 +348,19 @@ body::before {
 }
 .step {
   counter-increment: steps;
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: .82rem; color: #ccc; line-height: 1.5;
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 1.08rem; color: #ccc; line-height: 1.7;
 }
 .step::before {
   content: counter(steps);
   background: var(--red);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: .65rem; font-weight: 700;
-  min-width: 20px; height: 20px;
+  font-size: .78rem; font-weight: 700;
+  min-width: 24px; height: 24px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 2px;
+  flex-shrink: 0; margin-top: 3px;
 }
 
 /* ─── TIMER ──────────────────────────────────────────────────── */
@@ -404,20 +373,20 @@ body::before {
   margin-top: 14px;
 }
 .mini-timer .mt-label {
-  font-size: .72rem; color: var(--muted);
+  font-size: .95rem; color: var(--muted);
   font-family: var(--font-mono); white-space: nowrap;
 }
 .mini-timer .mt-display {
   font-family: var(--font-mono);
-  font-size: 1.3rem; font-weight: 700;
+  font-size: 1.55rem; font-weight: 700;
   color: var(--gold2);
-  letter-spacing: 2px; min-width: 70px;
+  letter-spacing: 2px; min-width: 75px;
 }
 .mt-btn {
   background: var(--red);
   border: none; border-radius: 6px;
   color: #fff; cursor: pointer;
-  font-size: .75rem; font-weight: 700;
+  font-size: .95rem; font-weight: 700;
   padding: 5px 10px;
   transition: background .15s;
 }
@@ -425,25 +394,6 @@ body::before {
 .mt-btn.green { background: #1a6b2f; }
 .mt-btn.green:hover { background: #0f4520; }
 
-
-/* ─── STUDENT VIEW TOGGLE ────────────────────────────────────── */
-#view-toggle-bar {
-  position: fixed; bottom: 24px; right: 24px; z-index: 100;
-  display: flex; gap: 10px;
-}
-.vt-btn {
-  background: var(--dark2);
-  border: 2px solid var(--gold);
-  border-radius: 30px;
-  color: var(--gold2);
-  font-family: var(--font-head);
-  font-size: .85rem; font-weight: 700;
-  padding: 10px 20px; cursor: pointer;
-  box-shadow: var(--glow-gold);
-  transition: all .18s;
-}
-.vt-btn:hover { background: var(--gold); color: var(--dark); }
-.vt-btn.active { background: var(--gold); color: var(--dark); }
 
 
 /* ─── NOTIFICATION ───────────────────────────────────────────── */
@@ -530,15 +480,6 @@ body::before {
     </div>
   </div>
 </header>
-
-<!-- ░░ PROGRESS ░░ -->
-<div id="progress-bar-wrap">
-  <span class="progress-label">PROGRESO DE LA CLASE</span>
-  <div class="progress-track">
-    <div class="progress-fill" id="prog-fill" style="width:0%"></div>
-  </div>
-  <span class="progress-pct" id="prog-pct">0%</span>
-</div>
 
 <!-- ░░ TABS ░░ -->
 <nav id="tabs">
@@ -1045,14 +986,14 @@ body::before {
           <p class="act-desc">Ahora es tu turno. Junto a tu pareja, diseñarás un diagrama de flujo completo del proceso de acceso a un reporte empresarial. Descarga la plantilla en PowerPoint y completa el siguiente ejercicio:</p>
 
           <!-- enunciado -->
-          <div style="background:var(--dark3);border:1.5px solid var(--gold);border-radius:10px;padding:18px 20px;margin:14px 0;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-              <span style="background:var(--red);color:#fff;font-family:var(--font-head);font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:.5px;">ENUNCIADO</span>
-              <span style="font-family:var(--font-head);font-size:.9rem;font-weight:700;color:var(--gold2);">TechReport Solutions</span>
+          <div style="background:var(--dark3);border:1.5px solid var(--gold);border-radius:10px;padding:20px 24px;margin:14px 0;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <span style="background:var(--red);color:#fff;font-family:var(--font-head);font-size:.9rem;font-weight:700;padding:4px 12px;border-radius:4px;letter-spacing:.5px;">ENUNCIADO</span>
+              <span style="font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--gold2);">TechReport Solutions</span>
             </div>
-            <p style="font-size:.85rem;color:#ccc;line-height:1.75;margin-bottom:12px;">La empresa <strong style="color:#fff;">TechReport Solutions</strong> necesita automatizar el acceso a sus reportes financieros. Actualmente, cuando un empleado quiere consultar un reporte, el proceso se realiza de forma manual y sin control. La empresa quiere representar gráficamente el nuevo proceso digital.</p>
-            <p style="font-size:.85rem;color:var(--gold2);font-weight:700;margin-bottom:10px;">Diseña un diagrama de flujo que muestre el proceso completo de acceso a un reporte en el sistema, considerando los siguientes pasos:</p>
-            <ol style="font-size:.85rem;color:#ccc;line-height:1.85;padding-left:20px;display:flex;flex-direction:column;gap:4px;">
+            <p style="font-size:1.05rem;color:#ccc;line-height:1.8;margin-bottom:14px;">La empresa <strong style="color:#fff;">TechReport Solutions</strong> necesita automatizar el acceso a sus reportes financieros. Actualmente, cuando un empleado quiere consultar un reporte, el proceso se realiza de forma manual y sin control. La empresa quiere representar gráficamente el nuevo proceso digital.</p>
+            <p style="font-size:1.05rem;color:var(--gold2);font-weight:700;margin-bottom:12px;">Diseña un diagrama de flujo que muestre el proceso completo de acceso a un reporte en el sistema, considerando los siguientes pasos:</p>
+            <ol style="font-size:1.05rem;color:#ccc;line-height:1.9;padding-left:22px;display:flex;flex-direction:column;gap:6px;">
               <li>El empleado ingresa al sistema con su usuario y contraseña.</li>
               <li>El sistema verifica si las credenciales son correctas. Si no lo son, permite reintentar. Si son correctas, continúa.</li>
               <li>El empleado selecciona el módulo de Reportes en el menú principal.</li>
@@ -1060,9 +1001,9 @@ body::before {
               <li>El empleado exporta el reporte en formato PDF o Excel.</li>
               <li>El proceso finaliza.</li>
             </ol>
-            <div style="background:var(--dark2);border-left:3px solid var(--red);border-radius:6px;padding:10px 14px;margin-top:14px;font-size:.82rem;color:#ccc;">
+            <div style="background:var(--dark2);border-left:3px solid var(--red);border-radius:6px;padding:12px 16px;margin-top:16px;font-size:1rem;color:#ccc;">
               Usa la <strong style="color:#fff;">simbología ISO estándar</strong>, aplica los <strong style="color:#fff;">5 símbolos estudiados</strong> y entrega el archivo con el nombre:<br>
-              <span style="font-family:var(--font-mono);color:var(--gold2);font-size:.85rem;letter-spacing:.5px;">Diagrama_[TuNombre]_[NombrePareja]</span>
+              <span style="font-family:var(--font-mono);color:var(--gold2);font-size:1rem;letter-spacing:.5px;">Diagrama_[TuNombre]_[NombrePareja]</span>
             </div>
           </div>
 
@@ -1155,7 +1096,7 @@ body::before {
       <div class="moment-icon" style="background:linear-gradient(135deg,#3a1a00,#7a3a00);border:1px solid var(--gold);">📋</div>
       <div>
         <div class="moment-title"><span style="color:var(--gold2)">EVALUACIÓN</span> — Escala de valoración</div>
-        <div class="moment-sub">Valor total: 2 puntos &nbsp;|&nbsp; 6 indicadores &nbsp;|&nbsp; Módulo: Análisis y Diseño de Reportes</div>
+        <div class="moment-sub">Valor total: 3 puntos &nbsp;|&nbsp; 6 indicadores &nbsp;|&nbsp; Módulo: Análisis y Diseño de Reportes</div>
       </div>
     </div>
 
@@ -1179,7 +1120,7 @@ body::before {
         <span style="font-size:1.4rem;">⭐</span>
         <div>
           <div style="font-size:.7rem;color:var(--muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.5px;">Valor total</div>
-          <div style="font-size:.9rem;font-weight:700;color:var(--gold2);">2.00 puntos</div>
+          <div style="font-size:.9rem;font-weight:700;color:var(--gold2);">3.00 puntos</div>
         </div>
       </div>
     </div>
@@ -1198,10 +1139,10 @@ body::before {
                 <th style="background:var(--red2);color:#fff;padding:11px 14px;text-align:left;border:1px solid #550000;font-family:var(--font-head);font-size:.95rem;letter-spacing:.5px;width:22%;">Indicador</th>
                 <th style="background:var(--red2);color:#fff;padding:11px 14px;text-align:left;border:1px solid #550000;font-family:var(--font-head);font-size:.95rem;letter-spacing:.5px;width:32%;">Descripción del desempeño</th>
                 <th style="background:#1A5E8B;color:#fff;padding:11px 10px;text-align:center;border:1px solid #124a6e;font-family:var(--font-head);font-size:.9rem;width:15%;">
-                  ✅ Logrado<br><span style="font-weight:400;font-size:.78rem;">0.33 pts</span>
+                  ✅ Logrado<br><span style="font-weight:400;font-size:.78rem;">0.50 pts</span>
                 </th>
                 <th style="background:#7A3A00;color:#fff;padding:11px 10px;text-align:center;border:1px solid #5a2a00;font-family:var(--font-head);font-size:.9rem;width:15%;">
-                  ⚠️ En proceso<br><span style="font-weight:400;font-size:.78rem;">0.17 pts</span>
+                  ⚠️ En proceso<br><span style="font-weight:400;font-size:.78rem;">0.25 pts</span>
                 </th>
                 <th style="background:#6B1A1A;color:#fff;padding:11px 10px;text-align:center;border:1px solid #4a0a0a;font-family:var(--font-head);font-size:.9rem;width:16%;">
                   ❌ No logrado<br><span style="font-weight:400;font-size:.78rem;">0 pts</span>
@@ -1338,7 +1279,7 @@ body::before {
                   <span style="display:block;font-size:.75rem;font-weight:400;color:#aaa;margin-top:2px;">Haz clic en los botones de cada indicador</span>
                 </td>
                 <td colspan="3" style="padding:12px 14px;border:1px solid #550000;text-align:center;vertical-align:middle;">
-                  <div style="font-family:var(--font-mono);font-size:2rem;font-weight:700;color:var(--gold2);" id="ev-total">— / 2.00</div>
+                  <div style="font-family:var(--font-mono);font-size:2rem;font-weight:700;color:var(--gold2);" id="ev-total">— / 3.00</div>
                   <div style="font-size:.75rem;color:var(--muted);margin-top:2px;" id="ev-breakdown">Selecciona un nivel en cada indicador</div>
                 </td>
               </tr>
@@ -1358,10 +1299,6 @@ body::before {
 </div><!-- /main -->
 
 <!-- ░░ FLOATING BUTTONS ░░ -->
-<div id="view-toggle-bar">
-  <button class="vt-btn" id="fullscreen-btn" onclick="toggleFullscreen()">⛶ Pantalla Completa</button>
-</div>
-
 <!-- ░░ PIN MODAL ░░ -->
 <div id="pin-overlay">
   <div id="pin-box">
@@ -1392,12 +1329,9 @@ function switchTab(i){
   document.getElementById('tab-'+i).classList.add('active');
   currentTab = i;
   updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-function updateProgress(){
-  const pct = Math.round(((currentTab-1)/3)*100);
-  document.getElementById('prog-fill').style.width = pct+'%';
-  document.getElementById('prog-pct').textContent = pct+'%';
-}
+function updateProgress(){ }
 
 // ── TOGGLE CARD ───────────────────────────────────────────────────
 function toggleCard(id){
@@ -1487,17 +1421,6 @@ function checkItem(cb){
   document.getElementById('checklist-status').textContent=done+' / '+total+' completados';
 }
 
-// ── FULLSCREEN ────────────────────────────────────────────────────
-function toggleFullscreen(){
-  if(!document.fullscreenElement){
-    document.documentElement.requestFullscreen().catch(()=>{});
-    document.getElementById('fullscreen-btn').textContent='⛶ Salir FS';
-  } else {
-    document.exitFullscreen();
-    document.getElementById('fullscreen-btn').textContent='⛶ Pantalla Completa';
-  }
-}
-
 // ── NOTIFICATION ─────────────────────────────────────────────────
 let notifTimeout;
 function showNotif(msg){
@@ -1552,7 +1475,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── EVALUACIÓN ────────────────────────────────────────────────────
-const evScores = { L: 0.33, P: 0.17, N: 0 };
+const evScores = { L: 0.50, P: 0.25, N: 0 };
 const evState  = { 1:null, 2:null, 3:null, 4:null, 5:null, 6:null };
 
 function setIndicator(num, level) {
@@ -1570,13 +1493,13 @@ function setIndicator(num, level) {
 function updateEvTotal() {
   const filled = Object.values(evState).filter(v => v !== null);
   if (filled.length === 0) {
-    document.getElementById('ev-total').textContent = '— / 2.00';
+    document.getElementById('ev-total').textContent = '— / 3.00';
     document.getElementById('ev-breakdown').textContent = 'Selecciona un nivel en cada indicador';
     return;
   }
   const total = Object.values(evState).reduce((sum, v) => sum + (v ? evScores[v] : 0), 0);
   const rounded = Math.round(total * 100) / 100;
-  document.getElementById('ev-total').textContent = rounded.toFixed(2) + ' / 2.00';
+  document.getElementById('ev-total').textContent = rounded.toFixed(2) + ' / 3.00';
 
   const done = filled.length;
   const L = filled.filter(v=>v==='L').length;
@@ -1588,8 +1511,8 @@ function updateEvTotal() {
   // color the total based on score
   const el = document.getElementById('ev-total');
   if (done < 6) { el.style.color = 'var(--gold2)'; }
-  else if (rounded >= 1.6) { el.style.color = '#4ADE80'; }
-  else if (rounded >= 1.0) { el.style.color = '#FBB040'; }
+  else if (rounded >= 2.4) { el.style.color = '#4ADE80'; }
+  else if (rounded >= 1.5) { el.style.color = '#FBB040'; }
   else { el.style.color = '#EF4444'; }
 }
 
@@ -1600,7 +1523,7 @@ function resetEval() {
       document.getElementById('ev'+i+'-'+l).classList.remove('selected-L','selected-P','selected-N');
     });
   }
-  document.getElementById('ev-total').textContent = '— / 2.00';
+  document.getElementById('ev-total').textContent = '— / 3.00';
   document.getElementById('ev-total').style.color = 'var(--gold2)';
   document.getElementById('ev-breakdown').textContent = 'Selecciona un nivel en cada indicador';
 }
